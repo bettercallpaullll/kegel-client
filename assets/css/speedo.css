@@ -1,0 +1,18 @@
+#speedo {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.61);
+    width: 8%;
+    transform: skew(-18deg);
+    top: 94%;
+    left: 17%;
+}
+
+#kmh {
+    display: inline;
+    margin-left: 5%;
+    font-size: 17px;
+}
+
+.icon {
+    margin-left: 0%;
+}

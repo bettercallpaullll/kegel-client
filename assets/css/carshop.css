@@ -1,0 +1,72 @@
+#vehicleshop {
+    position: absolute;
+    margin-left: 5%;
+    top: 5%;
+}
+
+#vehicleshop * {
+    border-radius: 5px;
+}
+
+#vehicleshop ul {
+    max-height: 500px;
+    width: 250px;
+    overflow: auto;
+    overflow-x: hidden;
+    background-color: rgba(0, 0, 0, 0.623);
+    list-style: none;
+}
+
+#vehicleshop li {
+    margin-top: 5%;
+    background-color: rgba(0, 0, 0, 0.521);
+    padding: 3%;
+    text-align: center;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.focusvehicle {
+    border-bottom: solid 1px yellow;
+}
+
+#vehicleshop h1 {
+    font-size: 24px;
+    background-color: rgba(0, 0, 0, 0.74);
+    padding: 2%;
+}
+
+#vehicleshop ul::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: rgba(255, 255, 0, 0.473);
+    border-radius: 5px;
+}
+
+#vehicleshop ul::-webkit-scrollbar {
+    width: 12px;
+    background-color: rgba(255, 255, 0, 0.452);
+    border-radius: 5px;
+}
+
+#vehicleshop ul::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.712);
+    border-radius: 5px;
+}
+
+#vehicleshop-buttons {
+    background-color: rgba(0, 0, 0, 0.678);
+    margin-top: 5%;
+    padding: 5%;
+}
+
+#vehicleshop-buttons button {
+    padding: 3%;
+    margin-top: 3%;
+    outline: none;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.438);
+}
+
+#vehicleshop-buttons button:hover {
+    background-color: rgba(255, 255, 0, 0.548);
+}

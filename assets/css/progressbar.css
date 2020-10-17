@@ -1,0 +1,47 @@
+#progressbar{
+    position: absolute;
+    width: 20%;
+    height: 5%;
+    background-color: rgba(0, 0, 0, 0.616);
+    left: 50%;
+    top: 90%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    border-radius: 5px;
+}
+
+#progressbar *{
+    border-radius: 5px;
+}
+
+#progressbar p{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+#progressbar-anim{
+    position: absolute;
+    z-index: -1;
+    background-color: rgba(255, 255, 0, 0.664);
+    height: 100%;
+    width: 100%;
+    animation: progressbar 5s ;
+    border: solid 2px rgba(0, 0, 0, 0.616);
+    animation-timing-function: linear;
+}
+
+@keyframes progressbar{
+    from{
+        width: 0%;
+        content: '0%';
+    }
+
+    top{
+        width: 100%;
+        content: '100%';
+    }
+}
+

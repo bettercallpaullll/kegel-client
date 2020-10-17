@@ -1,0 +1,44 @@
+#killfeed {
+    position: absolute;
+    width: 99%;
+    height: 99%;
+    margin-top: 0;
+}
+
+#killfeed p {
+    animation: fadeIn ease 200ms;
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+}
+
+#damage-list {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+}
+
+
+/* #damage-list li:nth-child(odd) {
+    margin-left: 50%;
+} */
+
+#damage-list li {
+    font-size: 20px;
+    font-weight: bold;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: black;
+    animation: fadeIn ease 0.5s;
+}
+
+.blue-damage {
+    color: rgba(45, 88, 206, 0.877);
+    margin-left: 50%;
+}
+
+.green-damage {
+    color: rgba(22, 167, 22, 0.726);
+}

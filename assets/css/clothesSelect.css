@@ -1,0 +1,50 @@
+#clothesSelect {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.637);
+    padding: 1%;
+}
+
+#clothesSelect input {
+    border: none;
+    background-color: rgba(255, 255, 0, 0.527);
+    outline: none;
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 70%;
+    height: 25px;
+    background: rgba(0, 0, 0, 0.452);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    margin-top: 5%;
+    border-radius: 5px;
+}
+
+.range-input:hover {
+    opacity: 1;
+}
+
+.range-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: rgba(255, 255, 0, 0.596);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.range-input::-webkit-slider-thumb:hover {
+    background: rgba(255, 255, 0, 0.781);
+}
+
+.range-input::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: blue;
+    cursor: pointer;
+}

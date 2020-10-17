@@ -1,0 +1,74 @@
+#garage {
+    position: absolute;
+    height: 30%;
+    width: 40%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#garage * {
+    border-radius: 5px;
+}
+
+#garage i {
+    position: absolute;
+    margin-left: 38%;
+}
+
+#garage ul {
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.644);
+    overflow-y: auto;
+    padding: 2%;
+}
+
+#garage li {
+    background-color: rgba(0, 0, 0, 0.562);
+    padding: 2%;
+    margin: 1%;
+    transition: 0.4s ease;
+    display: inline-block;
+    width: 30%;
+}
+
+#garage li:hover {
+    background-color: #ffff0098;
+    
+}
+
+#garage p {
+    background-color: rgba(0, 0, 0, 0.753);
+    padding: 1%;
+    font-size: 20px;
+}
+
+#garage span {
+    background-color: rgba(0, 0, 0, 0.692);
+    float: left;
+    height: 100%;
+    background-color: black;
+}
+
+#garage span:hover {
+    background-color: yellow;
+}
+
+#garage ul::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: rgba(255, 255, 0, 0.473);
+    border-radius: 5px;
+}
+
+#garage ul::-webkit-scrollbar {
+    width: 12px;
+    background-color: rgba(255, 255, 0, 0.452);
+    border-radius: 5px;
+}
+
+#garage ul::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.712);
+    border-radius: 5px;
+}

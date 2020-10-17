@@ -1,0 +1,31 @@
+#help {
+    position: absolute;
+    left: 90%;
+    top: 55%;
+    width: 10%;
+}
+
+#help * {
+    text-align: left;
+}
+
+.help_items {
+    position: relative;
+    margin-top: 5%;
+    width: 100%;
+}
+
+.help_items p {
+    position: relative;
+    display: inline-block;
+    margin-left: 0;
+}
+
+.block {
+    border: black solid 1px;
+    width: 15%;
+    background-color: rgba(0, 0, 0, 0.63);
+    text-align: center !important;
+    margin-right: 5%;
+    border-radius: 3px;
+}

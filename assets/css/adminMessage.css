@@ -1,0 +1,50 @@
+#adminMessage {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 40%;
+    width: 30%;
+}
+
+#adminMessage ul {
+    list-style: none;
+    width: 100%;
+}
+
+#adminMessage span {
+    word-wrap: break-word;
+}
+
+#adminMessage li {
+    background-color: rgba(0, 0, 0, 0.658);
+    border-radius: 2px;
+    font-size: 20px;
+    animation: fadeIn ease 1500ms;
+    width: 100%;
+}
+
+#adminMessage li p{
+    padding: 2%;
+}
+
+#anim{
+    width: 100%;
+    background-color: rgba(255, 0, 0, 0.493);
+    height: 2%;
+    position: absolute;
+    margin-left: 0;
+    padding: 0;
+    animation: fill 5s;
+    border-radius: 5px;
+}
+
+@keyframes fill{
+    from{
+        width: 100%;
+    }
+
+    to{
+        width: 0%;
+    }
+}

@@ -1,0 +1,130 @@
+#profile {
+    position: absolute;
+    width: 15%;
+    height: 10%;
+    border-radius: 5px;
+    margin-top: 49%;
+    margin-left: 84%;
+}
+
+#level {
+    margin-top: 1%;
+}
+
+#top-profile {
+    background-color: rgba(0, 0, 0, 0.733);
+    border-radius: 5px;
+}
+
+.bottom {
+    border-radius: 5px;
+}
+
+#profile-team {
+    width: 50px;
+    height: 50px;
+}
+
+.bottom-container {
+    width: 30%;
+    display: inline-block;
+    padding: 1%;
+    font-size: 14px;
+}
+
+#profile-teamname {
+    margin-bottom: 5%;
+    padding-bottom: 3%;
+}
+
+.img-container {
+    width: 30%;
+    display: inline-block;
+    padding: 2%;
+}
+
+.name-container {
+    width: 65%;
+    display: inline-block;
+    padding: 2%;
+}
+
+.pointscontainer {
+    border-right: 1px solid rgba(0, 0, 0, 0.308);
+    border-left: 1px solid rgba(0, 0, 0, 0.308);
+}
+
+.black-team {
+    background-color: rgba(0, 0, 0, 0.808);
+}
+
+.red-team {
+    background-color: rgba(255, 0, 0, 0.562);
+}
+
+.DarkTurquoise-team {
+    background-color: rgba(45, 171, 255, 0.705);
+}
+
+.LimeGreen-team {
+    background-color: rgba(50, 205, 50, 0.61);
+}
+
+.MediumVioletRed-team {
+    background-color: rgba(199, 21, 134, 0.562);
+}
+
+.Yellow-team {
+    background-color: rgba(255, 255, 0, 0.555);
+}
+
+.Grey-team {
+    background-color: rgba(128, 128, 128, 0.637);
+}
+
+.Black-team {
+    background-color: rgba(0, 0, 0, 0.664);
+}
+
+.OliveGreen-team {
+    background-color: rgba(41, 82, 29, 0.664);
+}
+
+
+/*  */
+
+.black-team-header {
+    border-bottom: solid 2px rgba(0, 0, 0, 0.473);
+}
+
+.red-team-header {
+    border-bottom: solid 2px rgba(255, 0, 0, 0.562);
+}
+
+.DarkTurquoise-team-header {
+    border-bottom: solid 2px rgba(45, 171, 255, 0.705);
+}
+
+.LimeGreen-team-header {
+    border-bottom: solid 2px rgba(50, 205, 50, 0.61);
+}
+
+.MediumVioletRed-team-header {
+    border-bottom: solid 2px rgba(199, 21, 134, 0.562);
+}
+
+.Yellow-team-header {
+    border-bottom: solid 2px rgba(255, 255, 0, 0.555);
+}
+
+.Grey-team-header {
+    border-bottom: solid 2px rgba(128, 128, 128, 0.637);
+}
+
+.Black-team-header {
+    border-bottom: solid 2px rgba(0, 0, 0, 0.664);
+}
+
+.OliveGreen-team-header {
+    border-bottom: solid 2px rgba(41, 82, 29, 0.664);
+}

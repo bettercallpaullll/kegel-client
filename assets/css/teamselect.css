@@ -1,0 +1,195 @@
+#teamselect {
+    position: absolute;
+    width: 99%;
+    height: 99%;
+}
+
+#teamselect button {
+    transition: 0.2s ease;
+}
+
+#teamselect button:hover {
+    background-color: rgba(255, 255, 0, 0.541) !important;
+}
+
+#teamselect * {
+    border-radius: 3px;
+}
+
+#teamselect ul {
+    list-style: none;
+}
+
+#team-container,
+#dm-container {
+    position: absolute;
+    top: 30%;
+    width: 20%;
+    background-color: rgba(0, 0, 0, 0.397);
+}
+
+#modeselect {
+    position: absolute;
+    top: 7%;
+    left: 5%;
+    width: 20%;
+    background-color: rgba(0, 0, 0, 0.397);
+    padding: 0.3%;
+    border: solid 1px yellow;
+    border-radius: 10px;
+    transition: 0.4s ease;
+}
+
+#modeselect:hover {
+    background-color: rgba(255, 255, 0, 0.541) !important;
+}
+
+#duell-container {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    width: 20%;
+    height: 50%;
+    background-color: rgba(0, 0, 0, 0.397);
+}
+
+#duell-container ul {
+    margin-top: 2%;
+    overflow-y: scroll;
+    height: 80%;
+}
+
+#duell-container p {
+    padding: 2%;
+    font-size: 20px;
+    width: 70%;
+    margin-left: 15%;
+    border-bottom: solid 2px yellow;
+    font-weight: bold;
+}
+
+#duell-container button {
+    outline: none;
+    border: none;
+    font-size: 18px;
+    margin-bottom: 3%;
+    margin-top: 1%;
+    padding: 2%;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.425);
+    float: left;
+    margin-left: 2%;
+}
+
+#duell-container h1 {
+    font-size: 15px;
+    margin-bottom: 3%;
+    margin-top: 1%;
+    padding: 2%;
+    font-weight: bold;
+    width: 25%;
+    float: left;
+    margin-left: 8%;
+    border: solid 2px yellow;
+}
+
+#duell-container input {
+    outline: none;
+    border: none;
+    font-size: 15px;
+    margin-bottom: 3%;
+    margin-top: 1%;
+    padding: 2%;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.425);
+    width: 20%;
+    margin-left: 1%;
+}
+
+#duell-container li {
+    margin-top: 2%;
+    padding: 2%;
+    font-size: 20px;
+    width: 70%;
+    margin-left: 15%;
+    font-weight: bold;
+}
+
+#team-container p,
+#dm-container p {
+    padding: 2%;
+    font-size: 20px;
+    width: 70%;
+    margin-left: 15%;
+    border-bottom: solid 2px yellow;
+}
+
+#team-container button,
+#dm-container button {
+    outline: none;
+    border: none;
+    font-size: 18px;
+    margin-bottom: 3%;
+    margin-top: 3%;
+    padding: 2%;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.425);
+}
+
+#join-btn :hover,
+#join-btn :hover {
+    background-color: rgba(255, 255, 0, 0.651)!important;
+}
+
+#team-container li,
+#dm-container li {
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 2%;
+    padding: 2%;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.384);
+}
+
+#team-container li :hover,
+#dm-container li :hover {
+    letter-spacing: 2px !important;
+}
+
+#team-container ul :first-child,
+#dm-container ul :first-child {
+    margin-top: 2%;
+}
+
+#team-container {
+    left: 5%;
+}
+
+#dm-container {
+    left: 75%;
+}
+
+.headerFocus {
+    border-bottom: solid 2px yellow !important;
+}
+
+.focusTeam {
+    border-bottom: solid 1px yellow !important;
+}
+
+#duell::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #00000028;
+    border-radius: 5px;
+}
+
+#duell::-webkit-scrollbar {
+    width: 12px;
+    background-color: #00000023;
+    border-radius: 5px;
+}
+
+#duell::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+}

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html class=''>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/teamselect.css">
+    <link rel="stylesheet" href="./css/killfeed.css">
+    <link rel="stylesheet" href="./css/speedo.css">
+    <link rel="stylesheet" href="./css/profile.css">
+    <link rel="stylesheet" href="./css/chat.css">
+    <link rel="stylesheet" href="./css/help.css">
+    <link rel="stylesheet" href="./css/garage.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/clothesSelect.css">
+    <link rel="stylesheet" href="./css/deathscreen.css">
+    <link rel="stylesheet" href="./css/br.css">
+    <link rel="stylesheet" href="./css/carshop.css">
+    <link rel="stylesheet" href="./css/adminMessage.css">
+    <link rel="stylesheet" href="./css/progressbar.css">
+    <link rel="stylesheet" href="./font/font.css">
+
+    <style>
+        * {
+            color: white;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            box-sizing: border-box;
+            font-family: roboto;
+            font-weight: 200;
+        }
+        
+        .header {
+            font-weight: bold;
+        }
+        
+        body {
+            width: 99%;
+            height: 99%;
+            overflow: hidden;
+            /* background-image: url("../assets/img/Untitled.png"); */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="login" v-if="display">
+        <div id="wrapper">
+            <div id="login-tab" v-if="loginOpen">
+                <p class="login-header">Wilkommen zurück bei Kolbenwars!</p>
+                <p id="playername">{{username}}</p>
+                <div>
+                    <button class="submit_btn" id="login_submit" @click="submit">Login</button>
+                </div>
+                <img @click="toogleDiscord" id="dc-img" src="img/discord.png">
+                <p v-if="discordOpen" id="dc">https://discord.io/kolben</p>
+            </div>
+            <div id="register-tab" v-if="loginOpen == false">
+                <p id="register-header">Wilkommen bei Kolbenwars!</p>
+                <div>
+                    <input v-model="username" type="text" name="" id="register_password_confirm" placeholder="Username">
+                </div>
+                <div>
+                    <button class="submit_btn" id="register_submit" @click="submit">Registrieren</button>
+                </div>
+                <img @click="toogleDiscord" id="dc-img" src="img/discord.png">
+                <p v-if="discordOpen" id="dc">https://discord.gg/sNtr5j6</p>
+            </div>
+        </div>
+        <ul id="alert">
+            <li v-for="notifcation in notifications">{{notifcation}}</li>
+        </ul>
+    </div>
+
+    <div id="clothesSelect" v-if="display">
+        <p>Component: {{component}}</p>
+        <p>Drawable: {{drawable}}</p>
+        <p>Texture: {{texture}}</p>
+        <input v-model="component" placeholder="ComponentID">
+        <input class="range-input" type="range" min="0" max="400" v-model="drawable" @change="Drawable()">
+        <input class="range-input" type="range" min="0" max="400" v-model="texture" @change="Texture()">
+        <button @click="Close()">Schließen</button>
+    </div>
+
+    <div id="teamselect" v-if="display">
+        <div id="modeselect">
+            <p v-if="teamOpen" style="font-size: 25px; font-weight: bold;" @click="modeSelect('duell')" v-bind:class="{ focusTeam: categoryId == 3 }">1vs1</p>
+            <p v-if="teamOpen == false" style="font-size: 25px; font-weight: bold;" @click="modeSelect('team')">Teams</p>
+        </div>
+        <div v-if="teamOpen">
+            <div id="team-container">
+                <p class="header">Teams</p>
+                <ul id="team">
+                    <li v-for="team in teams" class="team" @click="selectTeam(team.id, 1)" v-bind:class="{ focusTeam: selectedTeam == team.id && categoryId == 1 }">{{team.name}} Total: {{team.count}}</li>
+                </ul>
+                <button v-if="categoryId != 3" id="join-btn" @click="submit">Beitreten</button>
+            </div>
+
+            <div id="dm-container">
+                <p class="header">Deathmatch</p>
+                <ul id="dm">
+                    <li v-for="dmteam in dmteams" class="team" @click="selectTeam(dmteam.id, 2)" v-bind:class="{ focusTeam: selectedTeam == dmteam.id && categoryId == 2}">{{dmteam.name}} Total: {{dmteam.count}}</li>
+                </ul>
+                <button v-if="categoryId != 3" id="join-btn" @click="submit">Beitreten</button>
+            </div>
+        </div>
+        <div v-if="teamOpen == false" id="duell-container">
+            <p>Spieler:</p>
+            <ul id="duell">
+                <li v-for="player in players" class="team" @click="selectPlayer(player)" v-bind:class="{ focusTeam: player == currentPlayer }">{{player}}</li>
+            </ul>
+            <div id="challenge">
+                <button id="join-btn" @click="challengeplayer">Herausfordern</button>
+                <h1>Runden :</h1>
+                <input id="rounds" v-model="rounds" placeholder="Runden" type="number">
+            </div>
+        </div>
+    </div>
+
+    <div v-if="display" id="deathscreen">
+        <div id="background"></div>
+        <p id="wasted">wasted</p>
+        <p id="wasted-text">
+            Du wurdest von
+            <span id="underline-name">
+                {{killer}}
+            </span> getötet
+        </p>
+
+    </div>
+
+    <div id="killfeed" v-if="display">
+        <p v-if="showFeed">Du hast
+            <span class="focusTeam">{{name}}</span> getötet.
+        </p>
+        <ul id="damage-list">
+            <li v-for="dmg in damage" :key="dmg.c" v-bind:class="dmg.c+'-damage'">{{dmg.d}}</li>
+        </ul>
+    </div>
+
+    <div id="speedo" v-if="display">
+        <i class="fas fa-tachometer-alt icon"></i>
+        <div id="kmh">{{speed}} KM/H</div>
+    </div>
+
+    <div id="vehicleshop" v-if="display">
+        <h1>Autohandel</h1>
+        <ul class="scrollbar">
+            <li @click="back" v-if="!classOpen">Zurück</li>
+            <li v-for="c in classes" v-if="classOpen" @click="selectClass(c)">
+                {{c}}
+            </li>
+            <li v-for="veh in vehicles" v-if="!classOpen && currentClass == veh.class" @click="selectVehicle(veh)" v-bind:class="{ focusvehicle: selectedVehicle == veh }">
+                {{veh.name}}
+            </li>
+        </ul>
+        <div id="vehicleshop-buttons">
+            <p v-if="selectedVehicle != null">Preis: {{selectedVehicle.price}}</p>
+            <button @click="buyVehicle(selectedVehicle.hash)" v-if="selectedVehicle != null">Kaufen</button>
+            <button @click="close">Schließen</button>
+        </div>
+    </div>
+
+    <div id="profile" v-if="display">
+        <div id="top-profile">
+            <div class="img-container">
+                <img id="profile-team" v-bind:src="img">
+            </div>
+            <div class="name-container">
+                <div id="profile-teamname" class="header" v-bind:class="color+'-team-header'">{{teamname}}</div>
+                <div id="name" class="header">{{name}}</div>
+            </div>
+
+        </div>
+        <div class="bottom" v-bind:class="color+'-team'">
+            <div class="killscontainer bottom-container">
+                <p class="profile-p header">Kills</p>
+                <div id="kills">{{kills}}</div>
+            </div>
+            <div class="pointscontainer bottom-container">
+                <p class="profile-p header">Points</p>
+                <div id="points">{{points}}</div>
+            </div>
+            <div class="deathscontainer bottom-container">
+                <p class="profile-p header">Deaths</p>
+                <div id="deaths">{{deaths}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="chat" v-if="display" v-bind:class="{ disableChat: enabled == false }" v-bind:class="{ enableChat: enabled == true }">
+        <ul id="chat-list">
+            <li v-for="msg in messages" v-bind:id="msg+'-chat'">{{msg}}</li>
+        </ul>
+        <input ref="chat_input" v-model="input" v-bind:disabled="!enabled" id="chat-input" type="text" v-bind:class="{ chatFocus: enabled }">
+    </div>
+
+    <div id="progressbar" v-if="display">
+        <p>{{progress}}%</p>
+        <div id="progressbar-anim"></div>
+    </div>
+
+    <div id="adminMessage">
+        <ul>
+            <li id="admin-text" v-for="mess in messages">
+                <p>{{mess}}</p>
+                <div id="anim"></div>
+            </li>
+        </ul>
+    </div>
+
+    <div id="help" v-if="display">
+        <div class="help_items">
+            <p class="block header">F2</p>
+            <p class="header">ModusAuswahl</p>
+        </div>
+        <div class="help_items">
+            <p class="block header">F4</p>
+            <p class="header">Autohandel</p>
+        </div>
+        <div class="help_items">
+            <p class="block header">,</p>
+            <p class="header">Verbandskasten</p>
+        </div>
+        <div class="help_items">
+            <p class="block header">.</p>
+            <p class="header">Weste</p>
+        </div>
+        <div class="help_items">
+            <p class="block header">T</p>
+            <p class="header">Chat</p>
+        </div>
+        <div class="help_items">
+            <p class="block header">F10</p>
+            <p class="header">Schließen/öffnen</p>
+        </div>
+    </div>
+
+    <div id="garage" v-if="display">
+        <p>Garage
+            <i class="fas fa-times" @click="display = false"></i>
+        </p>
+        <ul>
+            <li v-for="vehicle in vehicles" @click="parkOut(vehicle)">
+                {{vehicle.name}}
+            </li>
+        </ul>
+    </div>
+
+    <div id="br" v-if="display">
+        <p style="background-color: black; color: white;">{{currentPlayer}}</p>
+        <button style="background-color: black; color: white;" @click="nextPlayer()">NEXT</button>
+        <button style="background-color: black; color: white;" @click="previousPlayer()">PREV</button>
+        <button style="background-color: black; color: white;" @click="endSpec()">END</button>
+    </div>
+
+    <script src="https://kit.fontawesome.com/0c137ec9f8.js" crossorigin="anonymous"></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js'></script>
+    <script src="./vehicles.js"></script>
+    <script src='./js/vehicleshop.js'></script>
+    <script src='./js/teamselect.js'></script>
+    <script src='./js/killfeed.js'></script>
+    <script src='./js/speedo.js'></script>
+    <script src='./js/profile.js'></script>
+    <script src='./js/chat.js'></script>
+    <script src='./js/help.js'></script>
+    <script src='./js/garage.js'></script>
+    <script src='./js/login.js'></script>
+    <script src='./js/clothesSelect.js'></script>
+    <script src='./js/deathscreen.js'></script>
+    <script src='./js/br.js'></script>
+    <script src='./js/progressbar.js'></script>
+    <script src='./js/adminMessage.js'></script>
+</body>
+
+</html>

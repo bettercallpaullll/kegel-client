@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'gta';
+    src: url(./gta.ttf);
+}
+
+@font-face {
+    font-family: 'custom-bold';
+    src: url(./OpenSansCondensed-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'custom-light';
+    src: url(./OpenSansCondensed-Light.ttf);
+}
+
+@font-face {
+    font-family: 'roboto';
+    src: url(./Roboto-Bold.ttf );
+}
