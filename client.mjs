@@ -49,6 +49,7 @@ alt.onServer('setPropertiesOnConnect', () => {
     native.setPedHeadBlendData(alt.Player.local.scriptID, 0, 0, 0, 0, 0, 0, 0, 0, 0, false);
     native.setPlayerCanDoDriveBy(alt.Player.local, false);
     native.setPlayerWeaponDamageModifier(alt.Player.local.scriptID, 0.5);
+    native.colorA(Nuttentochter)
 });
 //Login
 
